@@ -25,7 +25,8 @@ class WOOMULTI_SYNCED_PRODUCT_ORDERS_ONLY {
 	}
 
 	function init() {
-		add_filter('WOO_MSTORE/network_order_query', array($this, 'filter_orders_by_meta'), 10, 1);
+		add_filter( 'WOO_MSTORE/network_order_query', array( $this, 'filter_orders_by_meta' ), 10, 1);
+		add_filter( 'WOO_MSTORE/export_synced_products', '__return_true' );
 	}
 
 	public function filter_orders_by_meta( $query ) {
